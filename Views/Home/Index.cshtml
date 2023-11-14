@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<body class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Private Messaging Service</h1>
+        <div class="lead text-muted">
+                <main>
+                    @if (TempData["Message"] != null)
+                    {
+                    <div class="col-md-12 alert alert-success">
+                        <span>@TempData["Message"]</span>
+                    </div>
+                    }
+                    @if (TempData["Error"] != null)
+                    {
+                    <div class="col-md-12 alert alert-danger">
+                        <span>Sorry! @TempData["Error"]</span>
+                    </div>
+                    }
+                    <section class="hero">
+                        <h2>How to Use This App</h2>
+                        <ol>
+                            <li>Create an account or sign in if you already have an account.</li>
+                            <li>Generate your unique link by clicking on the "My Link" button.</li>
+                            <li>Share your unique link with others on social media platforms and receive anonymous messages from them.</li>
+                        </ol>
+                    </section>
+                     @if (User.Identity.IsAuthenticated)
+                    {
+                    <p style="margin-bottom:50px">
+                        <a class="btn btn-outline-secondary" asp-area="" asp-controller="User" asp-action="Profile">Profile</a>
+
+                        <a class="btn btn-outline-danger" asp-area="" asp-controller="Link" asp-action="GetLink">My Link</a>
+                    </p>
+                    }
+                    else
+                    {
+                    <p style="margin-bottom:50px">
+                        <a class="btn btn-outline-primary" asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
+
+                        <a class="btn btn-outline-secondary" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                    </p>
+                    }
+                </main>
+        </div>
+    </div>
+</body>

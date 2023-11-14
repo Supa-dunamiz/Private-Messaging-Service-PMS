@@ -1,0 +1,35 @@
+﻿@using PMS.ViewModels;
+@model LoginViewModel
+
+<body class="text-center">
+    @{
+        ViewData["Title"] = "LogIn";
+    }
+    <center class="album py-5 bg-light">
+        <div class="row">
+                <p>
+                    <h6 class="h3 mb-3 font-weight-normal">LOG IN</h6>
+                </p>
+                @if (TempData["Error"] != null)
+                {
+                    <div class="col-md-12 alert alert-danger">
+                        <span><b>Sorry!</b> - @TempData["Error"]</span>
+                    </div>
+                }
+                <form asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <label asp-for="EmailAddress" class="sr-only">Email address</label>
+                    <input asp-for="EmailAddress" style="width:50%" type="email" class="form-control" placeholder="Email address" required autofocus>
+
+                    <label asp-for="Password" class="sr-only">Password</label>
+                    <input asp-for="Password" style="width:50%" type="password" class="form-control" placeholder="Password" required>
+                  
+                    <div style="margin-top:10px" class="form-group">
+                        <input class="btn btn-outline-success float-right" type="submit" value="Sign in" />
+                        <a class="btn btn-outline-secondary" asp-controller="Account" asp-action="Register">Register</a>
+                    </div>
+                </form>
+        </div>
+    </center>
+</body>

@@ -1,0 +1,28 @@
+﻿@using PMS.ViewModels;
+@model EditProfileViewModel
+
+<section class="album py-5 bg-light" style="padding-bottom:100px">
+    @if (TempData["Error"] != null)
+    {
+        <div class="col-md-12 alert alert-danger">
+            <span>@TempData["Error"]</span>
+        </div>
+    }
+    <form method="post" asp-action="EditUserProfile" enctype="multipart/form-data">
+        <input type="hidden" id="Id" name="Id" asp-for="Id">
+        <div class="form-group">
+            <label asp-for="Username">User Name</label>
+            <input style="width:50%" asp-for="Username" type="text" class="form-control" aria-describedby="emailHelp" placeholder="UserName">
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Image">Image</label>
+            <input style="width:50%" asp-for="Image" type="file" class="form-control" aria-describedby="emailHelp" placeholder="City">
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+        <div style="margin-top:20px">
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+            <a class="btn btn-outline-danger" asp-area="" asp-controller="User" asp-action="Profile">Cancel</a>
+        </div>
+    </form>
+</section>

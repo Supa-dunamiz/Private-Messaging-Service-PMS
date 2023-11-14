@@ -1,0 +1,17 @@
+﻿﻿@using PMS.ViewModels
+@model UserViewModel
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-8">
+                <img class="img-fluid" src="@Model.ProfileImageUrl" width="50%" height="50" alt="Image">
+            </div>
+            <div class="col-md-4">
+                <h3 class="my-3">@Model.Username</h3>
+                <p>@Model.EmailAddress</p>
+            </div>
+        </div>
+    </div>
+</div>

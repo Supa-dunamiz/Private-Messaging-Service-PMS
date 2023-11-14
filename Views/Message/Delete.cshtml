@@ -1,0 +1,12 @@
+﻿@model Message
+<body>
+    <h4>Delete Message</h4>
+    <form method="post" asp-action="Delete" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Content">Content</label>
+            <textarea readonly style="height:fit-content" asp-for="Content" class="form-control" aria-describedby="emailHelp" placeholder="Content"></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        <button style="margin-top:20px" type="submit" class="btn btn-outline-danger">Confirm</button>
+    </form>
+</body>

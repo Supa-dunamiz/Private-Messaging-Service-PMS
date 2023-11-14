@@ -1,0 +1,43 @@
+﻿@using PMS.Models;
+@model IEnumerable<Message>
+
+<body>
+    <h2>Messages</h2>
+    <div class="table-responsive">
+        <table style="margin-bottom:60px" class="table table-striped table-sm">
+            @if (TempData["Message"] != null)
+            {
+                <div class="col-md-12 alert alert-success">
+                    <span>@TempData["Message"]</span>
+                </div>
+            }
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Time Received</th>
+                    <th>Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var message in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>Anonymous</td>
+                        <td>@message.CreatedAt.Value.ToString("h:mm tt")</td>
+                        <td>@message.CreatedAt.Value.ToString("yyyy/MM/dd")</td>
+                        @if (!message.IsOpened)
+                        {
+                            <td><a asp-action="Detail" asp-controller="Message" asp-route-id="@message.Id" asp-area="" type="button" class="btn btn-success">View New Message</a></td>
+                        }
+                        else
+                        {
+                            <td><a asp-action="Detail" asp-controller="Message" asp-route-id="@message.Id" asp-area="" type="button" class="btn btn-outline-success">View Message</a></td>
+                        }
+                    </tr>
+                </tbody>
+            }
+        </table>
+        <div />
+    </div>
+</body>

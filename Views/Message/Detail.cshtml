@@ -1,0 +1,30 @@
+﻿@model Message
+
+<body>
+    <div style="margin-bottom:60px" class="row">
+        <center>
+            <h3 class="my-3">Anonymous</h3>
+            @if(Model.Image == null || Model.Image == "")
+            {
+                <p></p>
+            }
+            else
+            {
+                <div class="col-md-8">
+                    <img class="img-fluid" src="@Model.Image" width="80%" height="150" alt="Image">
+                </div>
+            }
+            <div style="margin-top:20px" class="col-md-4">
+                <p>@Model.Content</p>
+            </div>
+        </center>
+        <div style="margin-top:20px">
+            <p><b>Date Received: </b>@Model.CreatedAt.Value.ToString("yyyy/MM/dd")</p>
+            <p><b>Time: </b>@Model.CreatedAt.Value.ToString("hh:mm tt")</p>
+        </div>
+        <center style="margin-top:10px">
+            <a asp-action="Delete" asp-controller="Message" asp-area="" asp-route-id="@Model.Id" type="button" class="btn btn-danger">Delete Message</a>
+        </center>
+    </div>
+
+</body>

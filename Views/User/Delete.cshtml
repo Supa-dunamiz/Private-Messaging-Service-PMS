@@ -1,0 +1,11 @@
+﻿@model AppUser
+
+<body>
+    <h4>Delete User</h4>
+    <p>@Model.UserName</p>
+    <p>@Model.Email</p>
+    <form method="post" asp-action="Delete" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id">
+        <button style="margin-top:20px" type="submit" class="btn btn-outline-danger">Confirm</button>
+    </form>
+</body>

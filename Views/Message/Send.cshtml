@@ -1,0 +1,27 @@
+﻿@using PMS.ViewModels;
+@model SendMessageViewModel
+
+<body>
+    <h4>Send Message</h4>
+    <h6 style="color:red">Receiver: @Model.Receiver.UserName</h6>
+    <form method="post" asp-action="Send" enctype="multipart/form-data">
+        <input type="hidden" asp-for="ReceiverId">
+        <div class="form-group">
+            <label asp-for="Content">Message</label>
+            <textarea id="messageInput" maxlength="1000" oninput="updateCharacterCount()" style="height:200px" asp-for="Content" class="form-control" aria-describedby="emailHelp" placeholder="Content"></textarea>
+            <div style="margin-top:5px" id="characterCount">Characters left: 1000</div>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+
+        <div id="imageSection" style="display: none; margin-top:20px">
+            <label asp-for="Image">Add Image</label>
+            <input style="width:90%" asp-for="Image" type="file" class="form-control" aria-describedby="emailHelp">
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+        
+        <div style="margin-top:20px">
+            <button class="btn btn-outline-danger" id="addImageButton" type="button" onclick="toggleImageSection()">Add Image</button>
+            <button  type="submit" class="btn btn-outline-success">Send</button>
+        </div>
+    </form>
+</body>

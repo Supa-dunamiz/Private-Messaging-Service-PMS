@@ -1,0 +1,17 @@
+﻿@model Link
+<body>
+    <div style="margin-bottom:30px">
+        <p>Your Unique Link:</p>
+        <input class="form-control" type="text" id="uniqueLink" value="http://www.pmswebapp.somee.com/message/send/?token=@Model.LinkId" readonly>
+        <a style="margin-top:10px" class="btn btn-outline-success" id="copyButton">Copy Link</a>
+    </div>
+
+    <section style="margin-bottom:30px">
+        <p>Share on Social Media:</p>
+        <div>
+            <a class="btn btn-outline-primary" id="facebookShare">Facebook</a>
+            <a class="btn btn-outline-success" id="whatsappShare">WhatsApp</a>
+            <a class="btn btn-outline-danger" id="tiktokShare">TikTok</a>
+        </div>
+    </section>
+</body>
